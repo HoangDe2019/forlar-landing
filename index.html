@@ -1,1 +1,277 @@
 
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flora Quán Rượu | ワインと花の隠れ家</title>
+    
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #d4a373;   /* Vàng đồng ấm áp */
+            --dark: #111111;
+        }
+        
+        body {
+            font-family: 'Poppins', 'Noto Serif JP', serif;
+            background-color: #0a0a0a;
+            color: #f0f0f0;
+            line-height: 1.7;
+        }
+        
+        h1, h2, h3, .navbar-brand {
+            font-family: 'Playfair Display', 'Noto Serif JP', serif;
+            letter-spacing: 1px;
+        }
+        
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)), 
+                        url('https://i.imgur.com/fq15u.png') center/cover no-repeat fixed;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .navbar {
+            background-color: rgba(17, 17, 17, 0.98) !important;
+            backdrop-filter: blur(12px);
+        }
+        
+        .nav-link {
+            color: #ddd !important;
+            font-weight: 400;
+            transition: all 0.4s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary) !important;
+            letter-spacing: 1px;
+        }
+        
+        .btn-flora {
+            background-color: var(--primary);
+            color: #111;
+            font-weight: 500;
+            padding: 14px 36px;
+            border-radius: 4px;
+            transition: all 0.4s;
+        }
+        
+        .btn-flora:hover {
+            background-color: #e0b88a;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(212, 163, 115, 0.3);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            font-size: 2.8rem;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 2px;
+            background: var(--primary);
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .card {
+            background-color: #1a1a1a;
+            border: none;
+            overflow: hidden;
+        }
+        
+        .gallery-img {
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-img:hover {
+            transform: scale(1.08);
+        }
+        
+        footer {
+            background-color: #050505;
+        }
+        
+        .japanese-text {
+            font-family: 'Noto Serif JP', serif;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-white fs-3 fw-bold" href="#">Flora <span style="color:#d4a373">Quán Rượu</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">ホーム</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">私たちについて</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">空間</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">お問い合わせ</a></li>
+                </ul>
+                <a href="#" class="btn btn-flora ms-3" data-bs-toggle="modal" data-bs-target="#bookingModal">予約する</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1 class="display-1 fw-bold text-white mb-3">Flora Quán Rượu</h1>
+            <p class="lead fs-3 mb-2 japanese-text">花とワインのささやき</p>
+            <p class="fs-5 mb-5">優雅で温かな隠れ家 — 最高級のワインと花の香りに包まれる時間</p>
+            <div>
+                <a href="#gallery" class="btn btn-flora btn-lg me-4">空間を見る</a>
+                <a href="#" class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#bookingModal">今すぐ予約</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-5 bg-black">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img src="https://i.imgur.com/HqAr9.png" class="img-fluid rounded shadow" alt="Flora ワイン棚">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title text-white mb-4">Floraへようこそ</h2>
+                    <p class="lead japanese-text">ホーチミンに佇むFlora Quán Rượuは、花とワインが織りなす洗練された空間です。温かな照明、木の温もり、そして毎日飾られる新鮮な花々が、特別なひとときをお約束します。</p>
+                    <div class="mt-4">
+                        <p><i class="fas fa-wine-glass me-3 text-warning"></i>フランス・イタリア・チリなど厳選ワインとウィスキー</p>
+                        <p><i class="fas fa-leaf me-3 text-warning"></i>毎日新鮮な花で飾られたインテリア</p>
+                        <p><i class="fas fa-music me-3 text-warning"></i>週末のライブアコースティック音楽</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Floraの空間</h2>
+                <p class="text-muted japanese-text">細部までこだわった、落ち着いた大人の雰囲気</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <img src="https://i.imgur.com/fq15u.png" class="img-fluid rounded gallery-img shadow" alt="バーカウンター">
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <img src="https://i.imgur.com/YOWWD.png" class="img-fluid rounded gallery-img shadow" alt="ワイン棚とカウンター">
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <img src="https://i.imgur.com/HqAr9.png" class="img-fluid rounded gallery-img shadow" alt="マッカランと花瓶">
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <img src="https://i.imgur.com/W0tMc.png" class="img-fluid rounded gallery-img shadow" alt="プライベートソファ席">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div class="modal fade" id="bookingModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-white border-0">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fs-4 japanese-text">ご予約</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="bookingForm">
+                        <div class="mb-3">
+                            <input type="text" class="form-control bg-transparent text-white border-secondary" placeholder="お名前 *" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="tel" class="form-control bg-transparent text-white border-secondary" placeholder="電話番号 / Zalo *" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="date" class="form-control bg-transparent text-white border-secondary" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <select class="form-select bg-transparent text-white border-secondary">
+                                    <option>18:00</option>
+                                    <option>19:00</option>
+                                    <option>20:00</option>
+                                    <option>21:00</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <select class="form-select bg-transparent text-white border-secondary">
+                                    <option>2名</option>
+                                    <option>3名</option>
+                                    <option>4名</option>
+                                    <option>5名以上</option>
+                                </select>
+                            </div>
+                        </div>
+                        <textarea class="form-control bg-transparent text-white border-secondary" rows="3" placeholder="備考（誕生日・記念日など）"></textarea>
+                    </form>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+                    <button type="button" onclick="submitBooking()" class="btn btn-flora">予約を確定する</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-5 text-center">
+        <div class="container">
+            <p class="mb-2">📍 住所：ホーチミン市（実際の住所を入れてください）</p>
+            <p class="mb-3">📞 電話 / Zalo: 0901 234 567</p>
+            <div class="mt-4">
+                <a href="#" class="text-white mx-3"><i class="fab fa-instagram fa-2x"></i></a>
+                <a href="#" class="text-white mx-3"><i class="fab fa-facebook fa-2x"></i></a>
+            </div>
+            <p class="mt-5 mb-0 small text-white-50">© 2026 Flora Quán Rượu. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <script>
+        $(document).ready(function(){
+            $('a.nav-link').on('click', function(e){
+                if(this.hash !== ""){
+                    e.preventDefault();
+                    $('html, body').animate({
+                        scrollTop: $(this.hash).offset().top - 80
+                    }, 900);
+                }
+            });
+        });
+
+        function submitBooking() {
+            alert("ご予約ありがとうございます。\nFlora Quán Rượuよりすぐに確認のご連絡をいたします。");
+            $('#bookingModal').modal('hide');
+        }
+    </script>
+</body>
+</html>
