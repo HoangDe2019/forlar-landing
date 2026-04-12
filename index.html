@@ -4,26 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flora パブ | 花とワインの優雅な隠れ家</title>
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
-    
+
     <style>
         :root { --primary: #d4a373; }
-        
+
         body {
             font-family: 'Poppins', 'Noto Serif JP', serif;
             background-color: #0a0a0a;
-            color: #e5e5e5;
+            color: #f0f0f0;           /* Chữ chính sáng và dễ đọc */
             overflow-x: hidden;
         }
-        
+
         h1, h2, h3, .navbar-brand {
             font-family: 'Playfair Display', 'Noto Serif JP', serif;
+            color: #ffffff;
         }
 
-        /* ==================== PRELOADER ==================== */
+        /* Preloader */
         #preloader {
             position: fixed;
             inset: 0;
@@ -34,40 +35,50 @@
             z-index: 9999;
             transition: opacity 1.5s ease;
         }
-        
+
         .flower-icon {
             font-size: 5.5rem;
             color: var(--primary);
             animation: bloom 2.8s ease-in-out infinite;
             text-shadow: 0 0 35px rgba(212, 163, 115, 0.8);
         }
-        
+
         @keyframes bloom {
             0%, 100% { transform: scale(0.88) rotate(-10deg); }
             50% { transform: scale(1.18) rotate(10deg); }
         }
 
-        /* ==================== MOBILE OPTIMIZATION ==================== */
+        /* ==================== TEXT COLOR TỐI ƯU ==================== */
+        p, .lead {
+            color: #f0f0f0;
+        }
+
+        .text-muted {
+            color: #cccccc !important;
+        }
+
+        /* Contact section */
+        .p-4.bg-dark p {
+            color: #f0f0f0;
+        }
+
+        /* Hero */
         .hero {
             height: 100vh;
-            min-height: 650px; /* Tránh quá dài trên mobile */
-            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), 
+            min-height: 650px;
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
                         url('https://lh3.googleusercontent.com/p/AF1QipO7t3xvAdlesNSuEZbDPco2F9agicIMvlphgPlz=w1200-h800') center/cover no-repeat fixed;
             display: flex;
             align-items: center;
             text-align: center;
         }
 
-        .navbar-brand {
-            font-size: 1.6rem;
-        }
-
-        .nav-link {
-            font-size: 1.05rem;
-        }
+        .navbar-brand { font-size: 1.6rem; }
+        .nav-link { font-size: 1.05rem; }
 
         .section-title {
             font-size: 2.4rem;
+            color: #ffffff;
         }
 
         .gallery-img {
@@ -80,14 +91,13 @@
             height: 380px;
         }
 
-        /* Responsive adjustments */
+        /* Responsive */
         @media (max-width: 576px) {
             .hero h1 { font-size: 2.8rem; }
             .hero .lead { font-size: 1.3rem; }
             .section-title { font-size: 2.1rem; }
             .gallery-img { height: 180px; }
             .map-container iframe { height: 320px; }
-            .btn-flora { padding: 12px 28px; font-size: 1.05rem; }
         }
 
         @media (min-width: 768px) {
@@ -106,7 +116,7 @@
         </div>
     </div>
 
-    <!-- Navbar -->
+    <!-- Navbar (KHÔNG thay đổi) -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand text-white fs-3 fw-bold" href="#">Flora <span style="color:#d4a373">パブ</span></a>
@@ -115,10 +125,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">ホーム</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">私たちについて</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#gallery">ギャラリー</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">アクセス</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#home">ホーム</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#about">私たちについて</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#gallery">ギャラリー</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#contact">アクセス</a></li>
                 </ul>
             </div>
         </div>
@@ -184,7 +194,7 @@
                         <p class="lead">35/10 Mê Linh, Phường 19, Quận Tân Phú, TP. Hồ Chí Minh</p>
                         <p><i class="fas fa-phone me-2"></i> 0901 234 567 (Zalo / 電話)</p>
                         <p><i class="fas fa-clock me-2"></i> 営業時間：17:00 ～ 23:00</p>
-                        
+
                         <a href="#" id="map-link" class="btn btn-outline-light mt-3" target="_blank">
                             <i class="fab fa-google"></i> Google Mapsで見る
                         </a>
@@ -209,18 +219,17 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    
+
     <script>
-        // Preloader
         $(window).on('load', function() {
             $('#preloader').fadeOut(1500, function() {
                 $(this).remove();
             });
         });
 
-        // Google Maps (thay link thật của bạn)
+        // Google Maps
         document.getElementById('google-map').src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.0!2d106.6!3d10.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzUsMTAvMTAgTcO5IExpbmgsIFBoxrDhu51uZyAxOSwgUXXhuqNuIFTDom4gUGjDuiw!5e0!3m2!1sja!2sjp!4v1740000000000";
-        document.getElementById('map-link').href = "https://goo.gl/maps/YOUR_REAL_LINK_HERE";
+        document.getElementById('map-link').href = "https://www.google.com/maps?sca_esv=cfbf2bcf1de0a7ba&sxsrf=ANbL-n6Za8Etb3yJTNdU8h-vssE9Eb6a5w:1775998262964&biw=1920&bih=929&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnAiG2Zsb3JhIHF1YW4gcnVvb3UgMzUgbWUgbGluaDIHECEYoAEYCjIHECEYoAEYCkjRNFB0WKMvcAV4AJABAJgBigGgAfUMqgEEMC4xM7gBA8gBAPgBAZgCEqAC1A3CAggQABiwAxjvBcICCxAAGIAEGLADGKIEwgIIEAAYgAQYogTCAgUQABjvBcICBBAhGBWYAwDiAwUSATEgQIgGAZAGBZIHBDUuMTOgB6o1sgcEMC4xM7gHvQ3CBwYwLjEyLjbIBzKACAA&um=1&ie=UTF-8&fb=1&gl=vn&sa=X&geocode=Kb_tsCAAKXUxMdTGAruAvr7p&daddr=35/10+M%C3%AA+Linh,+Ph%C6%B0%E1%BB%9Dng+19,+Th%E1%BA%A1nh+M%E1%BB%B9+T%C3%A2y,+H%E1%BB%93+Ch%C3%AD+Minh";
     </script>
 </body>
 </html>
