@@ -15,7 +15,7 @@
         body {
             font-family: 'Poppins', 'Noto Serif JP', serif;
             background-color: #0a0a0a;
-            color: #f0f0f0;
+            color: #e5e5e5;
             overflow-x: hidden;
         }
         
@@ -23,11 +23,10 @@
             font-family: 'Playfair Display', 'Noto Serif JP', serif;
         }
 
-        /* ==================== FLORAL PRELOADER ==================== */
+        /* ==================== PRELOADER ==================== */
         #preloader {
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100vh;
+            inset: 0;
             background: #0a0a0a;
             display: flex;
             align-items: center;
@@ -36,104 +35,74 @@
             transition: opacity 1.5s ease;
         }
         
-        .floral-loader {
-            text-align: center;
-        }
-        
         .flower-icon {
             font-size: 5.5rem;
             color: var(--primary);
-            animation: bloom 2.5s ease-in-out infinite;
-            text-shadow: 0 0 30px rgba(212, 163, 115, 0.7);
-            display: inline-block;
+            animation: bloom 2.8s ease-in-out infinite;
+            text-shadow: 0 0 35px rgba(212, 163, 115, 0.8);
         }
         
         @keyframes bloom {
-            0%, 100% { transform: scale(0.85) rotate(-8deg); }
-            50% { transform: scale(1.15) rotate(8deg); }
-        }
-        
-        .loader-text {
-            font-size: 2.1rem;
-            color: var(--primary);
-            letter-spacing: 4px;
-            margin-top: 15px;
-            text-shadow: 0 0 15px rgba(212, 163, 115, 0.5);
-        }
-        
-        .loading-subtext {
-            color: #aaa;
-            font-size: 0.95rem;
-            margin-top: 8px;
+            0%, 100% { transform: scale(0.88) rotate(-10deg); }
+            50% { transform: scale(1.18) rotate(10deg); }
         }
 
-        /* Các phần còn lại */
+        /* ==================== MOBILE OPTIMIZATION ==================== */
         .hero {
             height: 100vh;
+            min-height: 650px; /* Tránh quá dài trên mobile */
             background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), 
                         url('https://lh3.googleusercontent.com/p/AF1QipO7t3xvAdlesNSuEZbDPco2F9agicIMvlphgPlz=w1200-h800') center/cover no-repeat fixed;
             display: flex;
             align-items: center;
             text-align: center;
         }
-        
-        .navbar { 
-            background-color: rgba(17,17,17,0.98) !important; 
-            backdrop-filter: blur(12px); 
+
+        .navbar-brand {
+            font-size: 1.6rem;
         }
-        
-        .nav-link:hover { color: var(--primary) !important; }
-        
-        .btn-flora {
-            background-color: var(--primary);
-            color: #111;
-            padding: 14px 36px;
-            border-radius: 4px;
-            font-weight: 500;
+
+        .nav-link {
+            font-size: 1.05rem;
         }
-        
-        .btn-flora:hover {
-            background-color: #e0b88a;
-            transform: translateY(-4px);
+
+        .section-title {
+            font-size: 2.4rem;
         }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 2px;
-            background: var(--primary);
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
+
         .gallery-img {
-            height: 280px;
+            height: 220px;
             object-fit: cover;
-            transition: all 0.5s ease;
+            border-radius: 8px;
         }
-        
-        .gallery-img:hover {
-            transform: scale(1.06);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+
+        .map-container iframe {
+            height: 380px;
         }
-        
-        .map-container {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+
+        /* Responsive adjustments */
+        @media (max-width: 576px) {
+            .hero h1 { font-size: 2.8rem; }
+            .hero .lead { font-size: 1.3rem; }
+            .section-title { font-size: 2.1rem; }
+            .gallery-img { height: 180px; }
+            .map-container iframe { height: 320px; }
+            .btn-flora { padding: 12px 28px; font-size: 1.05rem; }
+        }
+
+        @media (min-width: 768px) {
+            .gallery-img { height: 260px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- FLORAL PRELOADER -->
+    <!-- Preloader -->
     <div id="preloader">
-        <div class="floral-loader">
+        <div class="text-center">
             <div class="flower-icon">🌸</div>
             <div class="loader-text">Flora</div>
-            <p class="loading-subtext">Đang chuẩn bị không gian hoa và rượu...</p>
+            <p class="text-white-50 mt-3">優雅な空間を準備しています...</p>
         </div>
     </div>
 
@@ -151,7 +120,6 @@
                     <li class="nav-item"><a class="nav-link" href="#gallery">ギャラリー</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">アクセス</a></li>
                 </ul>
-                <a href="#" class="btn btn-flora ms-3" data-bs-toggle="modal" data-bs-target="#bookingModal">予約する</a>
             </div>
         </div>
     </nav>
@@ -164,7 +132,6 @@
             <p class="fs-5 mb-5">ホーチミンで最も優雅なワイン＆フラワーバー</p>
             <div>
                 <a href="#gallery" class="btn btn-flora btn-lg me-4">空間を見る</a>
-                <a href="#" class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#bookingModal">今すぐ予約</a>
             </div>
         </div>
     </section>
@@ -178,7 +145,7 @@
                 </div>
                 <div class="col-lg-6">
                     <h2 class="section-title text-white mb-4">Floraへようこそ</h2>
-                    <p class="lead">花の香りと上質なワインが溶け合う特別な空間です。温かな照明と美しい花々が、忘れられない時間をお届けします。</p>
+                    <p class="lead">花の香りと厳選されたワインが溶け合う、特別で優雅な隠れ家です。<br>温かな照明と毎日飾られる美しい花々が、忘れられない素敵な時間をお届けします。</p>
                 </div>
             </div>
         </div>
@@ -189,22 +156,22 @@
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-title">Floraの美しい空間</h2>
+                <p class="text-muted">細部までこだわった、落ち着いた大人の雰囲気</p>
             </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4"><img src="https://lh3.googleusercontent.com/p/AF1QipO7t3xvAdlesNSuEZbDPco2F9agicIMvlphgPlz=w800" class="img-fluid rounded gallery-img" alt=""></div>
-                <div class="col-md-6 col-lg-4"><img src="https://lh3.googleusercontent.com/p/AF1QipOU_kmHPWlBI5Y52cJnV9kePQJj4Rk_Uh6AHDgZ=w800" class="img-fluid rounded gallery-img" alt=""></div>
-                <div class="col-md-6 col-lg-4"><img src="https://lh3.googleusercontent.com/p/AF1QipNw53puOo9Ub6C-UjRsor8-JG-s65HA9MKF1XGI=w800" class="img-fluid rounded gallery-img" alt=""></div>
-                <div class="col-md-6 col-lg-4"><img src="https://lh3.googleusercontent.com/p/AF1QipMSWeGXbIXuHHu4026Jm9ulCAYDlG_U98b01D9X=w800" class="img-fluid rounded gallery-img" alt=""></div>
-                <div class="col-md-6 col-lg-4"><img src="https://lh3.googleusercontent.com/p/AF1QipNN9PxI1YvlmhdUGkybRSbTlY_gceDyPL7LHzcC=w800" class="img-fluid rounded gallery-img" alt=""></div>
-                <div class="col-md-6 col-lg-4">
-                    <img src="https://lh3.googleusercontent.com/p/AF1QipMUhWihs_R2wpim7C-9m2q3F67oauzkaISf-p41=s680-w680-h510-rw" 
-                         class="img-fluid rounded gallery-img" alt="Flora パブ">
+            <div class="row g-3 g-md-4">
+                <div class="col-6 col-md-4 col-lg-3"><img src="https://lh3.googleusercontent.com/p/AF1QipO7t3xvAdlesNSuEZbDPco2F9agicIMvlphgPlz=w800" class="img-fluid rounded gallery-img" alt=""></div>
+                <div class="col-6 col-md-4 col-lg-3"><img src="https://lh3.googleusercontent.com/p/AF1QipOU_kmHPWlBI5Y52cJnV9kePQJj4Rk_Uh6AHDgZ=w800" class="img-fluid rounded gallery-img" alt=""></div>
+                <div class="col-6 col-md-4 col-lg-3"><img src="https://lh3.googleusercontent.com/p/AF1QipNw53puOo9Ub6C-UjRsor8-JG-s65HA9MKF1XGI=w800" class="img-fluid rounded gallery-img" alt=""></div>
+                <div class="col-6 col-md-4 col-lg-3"><img src="https://lh3.googleusercontent.com/p/AF1QipMSWeGXbIXuHHu4026Jm9ulCAYDlG_U98b01D9X=w800" class="img-fluid rounded gallery-img" alt=""></div>
+                <div class="col-6 col-md-4 col-lg-3"><img src="https://lh3.googleusercontent.com/p/AF1QipNN9PxI1YvlmhdUGkybRSbTlY_gceDyPL7LHzcC=w800" class="img-fluid rounded gallery-img" alt=""></div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipMUhWihs_R2wpim7C-9m2q3F67oauzkaISf-p41=s680-w680-h510-rw" class="img-fluid rounded gallery-img" alt="">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact + Google Map -->
+    <!-- Contact -->
     <section id="contact" class="py-5 bg-black">
         <div class="container">
             <div class="text-center mb-5">
@@ -213,13 +180,13 @@
             <div class="row">
                 <div class="col-lg-5">
                     <div class="p-4 bg-dark rounded">
-                        <h5 class="mb-4"><i class="fas fa-map-marker-alt text-warning me-2"></i> Địa chỉ</h5>
+                        <h5 class="mb-4"><i class="fas fa-map-marker-alt text-warning me-2"></i> 住所</h5>
                         <p class="lead">35/10 Mê Linh, Phường 19, Quận Tân Phú, TP. Hồ Chí Minh</p>
-                        <p><i class="fas fa-phone me-2"></i> 0901 234 567 (Zalo / Điện thoại)</p>
-                        <p><i class="fas fa-clock me-2"></i> Mở cửa: 17:00 – 23:00</p>
+                        <p><i class="fas fa-phone me-2"></i> 0901 234 567 (Zalo / 電話)</p>
+                        <p><i class="fas fa-clock me-2"></i> 営業時間：17:00 ～ 23:00</p>
                         
                         <a href="#" id="map-link" class="btn btn-outline-light mt-3" target="_blank">
-                            <i class="fab fa-google"></i> Google Mapsで開く
+                            <i class="fab fa-google"></i> Google Mapsで見る
                         </a>
                     </div>
                 </div>
@@ -232,49 +199,11 @@
         </div>
     </section>
 
-    <!-- Booking Modal -->
-    <div class="modal fade" id="bookingModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content bg-dark text-white border-0">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title">ご予約</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3"><input type="text" class="form-control bg-transparent text-white" placeholder="お名前 *" required></div>
-                        <div class="row">
-                            <div class="col-md-6 mb-3"><input type="tel" class="form-control bg-transparent text-white" placeholder="電話番号 / Zalo *" required></div>
-                            <div class="col-md-6 mb-3"><input type="date" class="form-control bg-transparent text-white" required></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <select class="form-select bg-transparent text-white">
-                                    <option>18:00</option><option>19:00</option><option>20:00</option><option>21:00</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <select class="form-select bg-transparent text-white">
-                                    <option>2名</option><option>3名</option><option>4名</option><option>5名以上</option>
-                                </select>
-                            </div>
-                        </div>
-                        <textarea class="form-control bg-transparent text-white" rows="3" placeholder="備考"></textarea>
-                    </form>
-                </div>
-                <div class="modal-footer border-0">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
-                    <button type="button" onclick="submitBooking()" class="btn btn-flora">予約を確定</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Footer -->
     <footer class="py-5 text-center bg-black">
         <div class="container">
             <p>© 2026 Flora パブ</p>
-            <p class="small text-white-50">All rights reserved.</p>
+            <p class="small">All rights reserved.</p>
         </div>
     </footer>
 
@@ -282,22 +211,16 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     
     <script>
-        // Preloader với hiệu ứng hoa
+        // Preloader
         $(window).on('load', function() {
             $('#preloader').fadeOut(1500, function() {
                 $(this).remove();
             });
         });
 
-        function submitBooking() {
-            alert("ご予約ありがとうございます！\nFlora パブより確認のご連絡をいたします。");
-            $('#bookingModal').modal('hide');
-        }
-
-        // Thay link Google Maps thật của quán vào đây
+        // Google Maps (thay link thật của bạn)
         document.getElementById('google-map').src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.0!2d106.6!3d10.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzUsMTAvMTAgTcO5IExpbmgsIFBoxrDhu51uZyAxOSwgUXXhuqNuIFTDom4gUGjDuiw!5e0!3m2!1sja!2sjp!4v1740000000000";
-        
-        document.getElementById('map-link').href = "https://goo.gl/maps/YOUR_REAL_LINK";   // ← Thay link thật
+        document.getElementById('map-link').href = "https://goo.gl/maps/YOUR_REAL_LINK_HERE";
     </script>
 </body>
 </html>
