@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Website Under Construction</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&family=Poppins:wght@400;700;900&display=swap" rel="stylesheet"/>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    /* ============================================================
+       VARIABLES & RESET
+    ============================================================ */
+    :root {
+      --navy:   #1e2a4a;
+      --orange: #f5a623;
+      --yellow: #ffd000;
+      --cone:   #e85d04;
+      --white:  #ffffff;
+      --light-bg: #f0f5ff;
+      --text-muted: #6b7a9b;
+      --stripe-dark: #2b2b2b;
+      --stripe-yellow: #f5a623;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--white);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ============================================================
+       HERO / PAGE WRAPPER
+    ============================================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Decorative blob background */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -120px;
+      width: 560px; height: 560px;
+      border-radius: 50% 40% 60% 50% / 50% 60% 40% 50%;
+      background: linear-gradient(135deg, #d6e4ff 0%, #e8f0ff 60%, #f0f5ff 100%);
+      z-index: 0;
+      animation: blobFloat 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes blobFloat {
+      0%   { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(-20px, 30px) scale(1.05); }
+    }
+
+    /* ============================================================
+       DECORATIVE PLUS SIGNS
+    ============================================================ */
+    .plus {
+      position: absolute;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #c5d5f0;
+      user-select: none;
+      animation: plusPulse 3s ease-in-out infinite;
+    }
+    .plus:nth-child(1)  { top: 18%;  left: 44%; animation-delay: 0s; }
+    .plus:nth-child(2)  { top: 60%;  left: 28%; animation-delay: 0.8s; }
+    .plus:nth-child(3)  { top: 12%;  right: 8%; animation-delay: 1.4s; }
+    .plus:nth-child(4)  { bottom: 18%; right: 20%; animation-delay: 0.3s; }
+
+    @keyframes plusPulse {
+      0%, 100% { opacity: .4; transform: scale(1); }
+      50%       { opacity: 1;  transform: scale(1.3); }
+    }
+
+    /* ============================================================
+       LEFT COLUMN – TEXT
+    ============================================================ */
+    .text-col {
+      position: relative;
+      z-index: 2;
+    }
+
+    .text-col h1 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      color: var(--navy);
+      line-height: 1.15;
+    }
+
+    .text-col p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.75;
+      max-width: 400px;
+    }
+
+    /* Countdown */
+    .countdown-wrap {
+      display: flex;
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .countdown-box {
+      background: var(--navy);
+      color: #fff;
+      border-radius: 14px;
+      padding: 14px 18px;
+      text-align: center;
+      min-width: 72px;
+      box-shadow: 0 8px 24px rgba(30,42,74,.18);
+      transition: transform .25s;
+    }
+    .countdown-box:hover { transform: translateY(-4px); }
+    .countdown-box .num {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--yellow);
+      line-height: 1;
+    }
+    .countdown-box .lbl {
+      font-size: .68rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #a0b0d0;
+      margin-top: 4px;
+    }
+
+    /* CTA Button */
+    .btn-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--yellow);
+      color: var(--navy);
+      font-weight: 800;
+      font-size: .9rem;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 50px;
+      padding: 14px 32px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(245,166,35,.45);
+      transition: transform .2s, box-shadow .2s;
+      text-decoration: none;
+    }
+    .btn-contact:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 10px 28px rgba(245,166,35,.6);
+      color: var(--navy);
+    }
+
+    /* Social icons */
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 2px solid #d0daf0;
+      color: var(--navy);
+      font-size: 1rem;
+      margin-right: 8px;
+      transition: background .2s, border-color .2s, color .2s, transform .2s;
+      text-decoration: none;
+    }
+    .social-icons a:hover {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    /* ============================================================
+       RIGHT COLUMN – ILLUSTRATION
+    ============================================================ */
+    .illus-col {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    /* ---- Monitor ---- */
+    .monitor-wrap {
+      position: relative;
+      width: min(460px, 90vw);
+    }
+
+    .monitor {
+      background: #1e2a4a;
+      border-radius: 18px 18px 0 0;
+      padding: 14px 14px 0;
+      box-shadow: 0 20px 60px rgba(30,42,74,.25);
+      position: relative;
+      overflow: visible;
+    }
+
+    .monitor-screen {
+      background: #d6e4ff;
+      border-radius: 10px 10px 0 0;
+      height: 210px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 8px;
+      padding: 10px;
+      overflow: hidden;
+    }
+
+    .screen-block {
+      background: rgba(255,255,255,.65);
+      border-radius: 6px;
+      animation: screenBlink 4s ease-in-out infinite;
+    }
+    .screen-block:nth-child(1) { animation-delay: 0s; }
+    .screen-block:nth-child(2) { animation-delay: .5s; }
+    .screen-block:nth-child(3) { animation-delay: 1s; }
+    .screen-block:nth-child(4) { animation-delay: 1.5s; }
+    .screen-block:nth-child(5) { animation-delay: 2s; }
+    .screen-block:nth-child(6) { animation-delay: 2.5s; }
+
+    @keyframes screenBlink {
+      0%,100% { opacity: .55; }
+      50%      { opacity: 1; }
+    }
+
+    /* Caution stripe over monitor */
+    .caution-bar {
+      position: absolute;
+      bottom: 30px;
+      left: -24px; right: -24px;
+      height: 54px;
+      background: repeating-linear-gradient(
+        -45deg,
+        var(--stripe-dark) 0px,
+        var(--stripe-dark) 20px,
+        var(--stripe-yellow) 20px,
+        var(--stripe-yellow) 40px
+      );
+      border: 4px solid var(--navy);
+      border-radius: 6px;
+      z-index: 5;
+      box-shadow: 0 4px 16px rgba(0,0,0,.22);
+    }
+
+    /* Monitor stand */
+    .monitor-stand {
+      background: #1e2a4a;
+      height: 18px;
+      width: 80px;
+      margin: 0 auto;
+      border-radius: 0 0 6px 6px;
+    }
+    .monitor-base {
+      background: #1e2a4a;
+      height: 10px;
+      width: 130px;
+      margin: 0 auto;
+      border-radius: 4px;
+    }
+
+    /* Laptop keyboard row */
+    .keyboard {
+      background: #e8ecf8;
+      border-radius: 0 0 16px 16px;
+      height: 28px;
+      margin: 0 -14px;
+      position: relative;
+    }
+    .keyboard::after {
+      content: '';
+      position: absolute;
+      top: 6px; left: 50%; transform: translateX(-50%);
+      width: 70px; height: 10px;
+      background: #c5ceea;
+      border-radius: 4px;
+    }
+
+    /* ---- Worker sitting on top ---- */
+    .worker-top {
+      position: absolute;
+      top: -70px; right: 10px;
+      width: 90px;
+      animation: workerBob 3s ease-in-out infinite;
+    }
+    @keyframes workerBob {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-8px); }
+    }
+
+    /* ---- Traffic cone ---- */
+    .cone-wrap {
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+    .cone {
+      width: 0; height: 0;
+      border-left: 28px solid transparent;
+      border-right: 28px solid transparent;
+      border-bottom: 70px solid var(--cone);
+      position: relative;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,.2));
+      animation: coneWobble 2.5s ease-in-out infinite;
+    }
+    .cone::before {
+      content: '';
+      position: absolute;
+      bottom: -70px; left: -20px;
+      width: 40px; height: 10px;
+      background: #fff;
+      border-top: 7px solid var(--cone);
+    }
+    .cone::after {
+      content: '';
+      position: absolute;
+      bottom: -12px; left: -28px;
+      width: 56px; height: 8px;
+      background: #fff;
+      border-top: 8px solid var(--cone);
+    }
+    .cone-base {
+      width: 64px; height: 12px;
+      background: #888;
+      border-radius: 4px;
+      margin: 0 auto;
+    }
+
+    @keyframes coneWobble {
+      0%,100% { transform: rotate(-2deg); }
+      50%      { transform: rotate(2deg); }
+    }
+
+    /* ---- Worker right side ---- */
+    .worker-right {
+      position: absolute;
+      bottom: 0; right: -56px;
+      width: 84px;
+      animation: workerBob 2.8s ease-in-out infinite reverse;
+    }
+
+    /* ---- Gears ---- */
+    .gear {
+      position: absolute;
+      color: var(--orange);
+      font-size: 2.8rem;
+      opacity: .85;
+    }
+    .gear-tl { top: -20px; left: -40px; animation: spinGear 6s linear infinite; }
+    .gear-br { bottom: 60px; right: -50px; animation: spinGear 4s linear infinite reverse; font-size: 2rem; }
+
+    @keyframes spinGear { to { transform: rotate(360deg); } }
+
+    /* ---- Crane ---- */
+    .crane-wrap {
+      position: absolute;
+      top: -120px; right: 40px;
+      width: 100px;
+      opacity: .8;
+    }
+    .crane-tower {
+      width: 12px; height: 70px;
+      background: #2b3a60;
+      margin: 0 auto;
+      border-radius: 3px;
+    }
+    .crane-arm {
+      width: 80px; height: 10px;
+      background: #2b3a60;
+      border-radius: 3px;
+      margin-left: auto;
+      margin-top: -10px;
+      position: relative;
+    }
+    .crane-cable {
+      width: 2px; height: 30px;
+      background: #6b7a9b;
+      margin-left: auto;
+      margin-right: 10px;
+      position: relative;
+    }
+    .crane-hook {
+      width: 16px; height: 16px;
+      background: #2b3a60;
+      border-radius: 3px;
+      margin-left: auto;
+      margin-right: 3px;
+      animation: craneSwing 2.5s ease-in-out infinite;
+      transform-origin: top center;
+    }
+    @keyframes craneSwing {
+      0%,100% { transform: rotate(-6deg); }
+      50%      { transform: rotate(6deg); }
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 767px) {
+      .hero { flex-direction: column; padding-top: 80px; padding-bottom: 40px; }
+      .hero::before { width: 280px; height: 280px; top: -30px; right: -60px; }
+      .monitor-wrap { width: 90vw; }
+      .worker-right { display: none; }
+      .gear-br { display: none; }
+      .illus-col { margin-top: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<section class="hero px-4 px-md-5">
+  <!-- Plus decorations -->
+  <span class="plus">+</span>
+  <span class="plus">+</span>
+  <span class="plus">+</span>
+  <span class="plus">+</span>
+
+  <div class="container-xl">
+    <div class="row align-items-center gy-5">
+
+      <!-- ===== LEFT: Text ===== -->
+      <div class="col-12 col-md-5 text-col animate__animated animate__fadeInLeft">
+        <h1 class="mb-3">Website is<br>Under<br>Construction</h1>
+
+        <p class="mb-4">
+          Chúng tôi đang nỗ lực xây dựng để mang đến trải nghiệm tốt nhất. 
+          Hãy quay lại sớm — mọi thứ sẽ sẵn sàng trong:
+        </p>
+
+        <!-- Countdown -->
+        <div class="countdown-wrap">
+          <div class="countdown-box">
+            <div class="num" id="cd-days">00</div>
+            <div class="lbl">Ngày</div>
+          </div>
+          <div class="countdown-box">
+            <div class="num" id="cd-hours">00</div>
+            <div class="lbl">Giờ</div>
+          </div>
+          <div class="countdown-box">
+            <div class="num" id="cd-mins">00</div>
+            <div class="lbl">Phút</div>
+          </div>
+          <div class="countdown-box">
+            <div class="num" id="cd-secs">00</div>
+            <div class="lbl">Giây</div>
+          </div>
+        </div>
+
+        <!-- Progress bar -->
+        <p class="mb-1" style="color:var(--navy);font-weight:700;font-size:.9rem;">Tiến độ hoàn thành</p>
+        <div class="progress mb-4" style="height:10px;border-radius:8px;background:#dce6f7;">
+          <div class="progress-bar" id="progress-bar"
+               role="progressbar"
+               style="width:65%;background:linear-gradient(90deg,var(--yellow),var(--orange));border-radius:8px;transition:width 1.5s ease;">
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="d-flex align-items-center gap-3 flex-wrap">
+          <a href="mailto:hello@yoursite.com" class="btn-contact">
+            <i class="fa fa-envelope"></i> LIÊN HỆ NGAY
+          </a>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== RIGHT: Illustration ===== -->
+      <div class="col-12 col-md-7 illus-col animate__animated animate__fadeInRight">
+        <div class="monitor-wrap">
+
+          <!-- Crane decoration -->
+          <div class="crane-wrap">
+            <div class="crane-arm"></div>
+            <div class="crane-cable ms-auto me-2"></div>
+            <div class="crane-hook"></div>
+            <div class="crane-tower"></div>
+          </div>
+
+          <!-- Gear top-left -->
+          <i class="fa fa-gear gear gear-tl"></i>
+          <!-- Gear bottom-right -->
+          <i class="fa fa-gear gear gear-br"></i>
+
+          <!-- Worker sitting on top -->
+          <div class="worker-top">
+            <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Hard hat -->
+              <ellipse cx="45" cy="20" rx="22" ry="14" fill="#f5a623"/>
+              <rect x="24" y="26" width="42" height="6" rx="3" fill="#e08800"/>
+              <!-- Head -->
+              <ellipse cx="45" cy="35" rx="14" ry="14" fill="#FDDCB5"/>
+              <!-- Body -->
+              <rect x="30" y="48" width="30" height="28" rx="6" fill="#e85d04"/>
+              <!-- Legs -->
+              <rect x="29" y="72" width="13" height="16" rx="4" fill="#2b3a60"/>
+              <rect x="48" y="72" width="13" height="16" rx="4" fill="#2b3a60"/>
+              <!-- Laptop in hands -->
+              <rect x="15" y="60" width="28" height="18" rx="3" fill="#1e2a4a"/>
+              <rect x="17" y="62" width="24" height="14" rx="2" fill="#6dd5fa"/>
+            </svg>
+          </div>
+
+          <!-- Monitor body -->
+          <div class="monitor">
+            <div class="monitor-screen">
+              <div class="screen-block"></div>
+              <div class="screen-block"></div>
+              <div class="screen-block"></div>
+              <div class="screen-block"></div>
+              <div class="screen-block"></div>
+              <div class="screen-block"></div>
+            </div>
+
+            <!-- Caution stripe -->
+            <div class="caution-bar"></div>
+
+            <div class="keyboard"></div>
+          </div>
+
+          <div class="monitor-stand"></div>
+          <div class="monitor-base"></div>
+
+          <!-- Traffic cone -->
+          <div class="cone-wrap">
+            <div class="cone"></div>
+            <div class="cone-base mt-1"></div>
+          </div>
+
+          <!-- Worker right -->
+          <div class="worker-right">
+            <svg viewBox="0 0 80 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="40" cy="16" rx="20" ry="13" fill="#f5a623"/>
+              <rect x="21" y="22" width="38" height="6" rx="3" fill="#e08800"/>
+              <ellipse cx="40" cy="32" rx="13" ry="13" fill="#c68642"/>
+              <rect x="26" y="44" width="28" height="30" rx="6" fill="#e85d04"/>
+              <rect x="25" y="70" width="12" height="18" rx="4" fill="#2b3a60"/>
+              <rect x="43" y="70" width="12" height="18" rx="4" fill="#2b3a60"/>
+              <!-- Megaphone -->
+              <polygon points="60,38 76,28 76,52" fill="#ffd000"/>
+              <rect x="50" y="40" width="14" height="12" rx="3" fill="#ffd000"/>
+            </svg>
+          </div>
+
+        </div><!-- /monitor-wrap -->
+      </div>
+
+    </div><!-- /row -->
+  </div><!-- /container -->
+</section>
+
+<!-- ============================================================
+     SCRIPTS
+============================================================ -->
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  /* -------------------------------------------------------
+     construction-countdown.js  –  đếm ngược tới ngày ra mắt
+  ------------------------------------------------------- */
+  (function constructionCountdown() {
+    const LAUNCH_DATE = new Date('2025-12-31T00:00:00');
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function tick() {
+      const now  = new Date();
+      const diff = LAUNCH_DATE - now;
+      if (diff <= 0) {
+        document.getElementById('cd-days').textContent  = '00';
+        document.getElementById('cd-hours').textContent = '00';
+        document.getElementById('cd-mins').textContent  = '00';
+        document.getElementById('cd-secs').textContent  = '00';
+        return;
+      }
+      const days  = Math.floor(diff / 86400000);
+      const hours = Math.floor((diff % 86400000) / 3600000);
+      const mins  = Math.floor((diff % 3600000)  / 60000);
+      const secs  = Math.floor((diff % 60000)    / 1000);
+
+      document.getElementById('cd-days').textContent  = pad(days);
+      document.getElementById('cd-hours').textContent = pad(hours);
+      document.getElementById('cd-mins').textContent  = pad(mins);
+      document.getElementById('cd-secs').textContent  = pad(secs);
+    }
+
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  /* -------------------------------------------------------
+     construction-progress.js  –  animate progress bar on load
+  ------------------------------------------------------- */
+  (function constructionProgress() {
+    const bar = document.getElementById('progress-bar');
+    // Start from 0 then animate to target
+    bar.style.width = '0%';
+    setTimeout(() => { bar.style.width = '65%'; }, 400);
+  })();
+</script>
+
+</body>
+</html>
